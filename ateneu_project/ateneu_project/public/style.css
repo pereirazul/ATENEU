@@ -1,0 +1,30 @@
+.img-ateneu {
+    height: 150px;
+    padding-top:10px;
+    padding-left: 10px;
+}
+#login{
+    margin:auto;
+}
+form {
+    padding-top:15px;
+    padding-left: 30px;
+    padding-right: 15px;
+}
+.nav-link{
+    font-size:23px;
+
+}
+#navbarText{
+    padding:15px;
+}
+h1{
+    padding:20px 0px 10px 25px;
+}
+section{
+    padding-left:15px;
+    font-size:23px; 
+}
+#form-label{
+    font-size:25px;
+}
