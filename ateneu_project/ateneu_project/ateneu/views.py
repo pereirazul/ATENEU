@@ -9,7 +9,8 @@ def sobre(request):
 
 def home(request):
     return render(request, '../public/index.html')
-
+def cadastro(request):
+    return render(request,'../public/cadastro.html')
 def login(request):
     if request.method == 'POST':
         username = request.POST['username']
