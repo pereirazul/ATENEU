@@ -1,30 +1,36 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
-from django.http import HttpResponse
-
-def sobre(request):
-    html = '<html lang="pt-br"><body><h1>Alô mundo</h1></body></html>'
-    return HttpResponse(html)
-
+from django.contrib.auth import get_user_model
+User = get_user_model()
 def home(request):
     return render(request, '../public/index.html')
-def cadastro(request):
-    return render(request,'../public/cadastro.html')
-def login(request):
-    if request.method == 'POST':
-        username = request.POST['username']
-        password = request.POST['password']
-        user = authenticate(request,username=username,password=password)
-        if user is not None:
-            login(request,user)
-            return redirect('home')
-        else:
-            messages.error(request,'Usuário ou senha inválidos')
-    return render(request,'../public/login.html')
 
-#def delete_item(request, item_id):
-    #if request.method == 'DELETE':
-    # lógica para deletar item...
-    #return HttpResponse('Item deletado', status=204)
-    
+def cadastro(request):
+    if request.method == 'POST':  # Verifica se é uma requisição POST
+        email = request.POST.get('username')  # Obtém o email do formulário
+        password = request.POST.get('password')  # Obtém a senha do formulário
+
+        # Verifica se o usuário já existe
+        if User.objects.filter(username=email).exists():
+            messages.error(request, 'Usuário já existe.')
+        else:
+            # Cria um novo usuário
+            user = User.objects.create_user(username=email, email=email, password=password)
+            messages.success(request, 'Usuário cadastrado com sucesso! Faça login.')
+            return redirect('login')  # Redireciona para a página de login
+
+    return render(request, '../public/cadastro.html')  # Renderiza o template de cadastro
+
+def login(request):
+    if request.method == 'POST':  # Verifica se é uma requisição POST
+        username = request.POST['username']  # Obtém o nome de usuário do formulário
+        password = request.POST['password']  # Obtém a senha do formulário
+        user = authenticate(request, username=username, password=password)  # Autentica o usuário
+        if user is not None:
+            login(request, user)  # Faz login do usuário
+            return redirect('home')  # Redireciona para a página inicial
+        else:
+            messages.error(request, 'Usuário ou senha inválidos')  # Exibe mensagem de erro
+
+    return render(request, '../public/login.html')  # Renderiza o template de login

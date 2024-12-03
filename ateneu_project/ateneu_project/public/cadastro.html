@@ -14,7 +14,7 @@
           <img src="img/ateneu.png" alt="" class="img-ateneu" style="margin:auto;display:block">
         </nav>
     </header><!-- Optional JavaScript; choose one of the two! -->
-    <h1 style="text-align: center;">Cadastro</h1>
+    <h1 style="text-align: center;padding-top:20px;">Cadastro</h1>
     <section>
         <form method="post" style="position:relative;
         top: 30%;
@@ -29,7 +29,8 @@
               <label for="exampleInputPassword1" class="form-label" style="font-size:25px;">Senha</label>
               <input type="password" name="password" class="form-control" id="exampleInputPassword1" style="height:45px; width:50%;border-radius: 10px;border:2px solid rgba(0, 0, 0, 0.274);">
             </div>
-            <button type="submit" class="btn btn-primary button-dark bg-dark" style="height:70px;width:140px; border-radius:10px; font-size: 27px;margin-top: 5px;"><a href="index.html" style="text-decoration: none; color:white;">Entrar</a></button>
+            <div><a href="{% url 'login' %}" style="text-decoration:none;color:rgba(0, 0, 0, 0.692);font-weight: bold;font-size:25px;">Já tem uma conta?</a></div>
+            <button type="submit" class="btn btn-primary button-dark bg-dark" style="height:70px;width:140px; border-radius:10px; font-size: 27px;margin-top: 5px;">Cadastrar</button>
         </form>
     </section>
     <!-- Option 1: Bootstrap Bundle with Popper -->
