@@ -3,6 +3,6 @@ from ateneu import views
 
 urlpatterns = [
     path('home/', views.home, name='home'),
-    path('login/',views.login,name='login'),
+    path('login/',views.login_view,name='login'),
     path('cadastro/',views.cadastro,name='cadastro')
 ]

@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login as auth_login
 from django.contrib import messages
 from django.contrib.auth import get_user_model
 User = get_user_model()
+
 def home(request):
     return render(request, '../public/index.html')
 
@@ -22,13 +23,13 @@ def cadastro(request):
 
     return render(request, '../public/cadastro.html')  # Renderiza o template de cadastro
 
-def login(request):
+def login_view(request):  # Renomeei a função para evitar conflito com a função `login` do Django
     if request.method == 'POST':  # Verifica se é uma requisição POST
         username = request.POST['username']  # Obtém o nome de usuário do formulário
         password = request.POST['password']  # Obtém a senha do formulário
         user = authenticate(request, username=username, password=password)  # Autentica o usuário
         if user is not None:
-            login(request, user)  # Faz login do usuário
+            auth_login(request, user)  # Usa a função `login` do Django, renomeada como `auth_login`
             return redirect('home')  # Redireciona para a página inicial
         else:
             messages.error(request, 'Usuário ou senha inválidos')  # Exibe mensagem de erro
