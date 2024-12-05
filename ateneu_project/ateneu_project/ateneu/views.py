@@ -11,13 +11,13 @@ def cadastro(request):
     if request.method == 'POST':  # Verifica se é uma requisição POST
         email = request.POST.get('username')  # Obtém o email do formulário
         password = request.POST.get('password')  # Obtém a senha do formulário
-
+        nome_completo=request.POST.get('nome_completo')
         # Verifica se o usuário já existe
         if User.objects.filter(username=email).exists():
             messages.error(request, 'Usuário já existe.')
         else:
             # Cria um novo usuário
-            user = User.objects.create_user(username=email, email=email, password=password)
+            user = User.objects.create_user(username=email, email=email, password=password,nome_completo=nome_completo)
             messages.success(request, 'Usuário cadastrado com sucesso! Faça login.')
             return redirect('login')  # Redireciona para a página de login
 

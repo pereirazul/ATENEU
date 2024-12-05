@@ -23,7 +23,7 @@
               {% csrf_token %}
               
               <label for="exampleInputEmail1" class="form-label" style="font-size:25px;">Nome completo</label>
-              <input type="email" name="nome_completo" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" style="height:45px; width:50%;border-radius: 10px;border:2px solid rgba(0, 0, 0, 0.274);">
+              <input name="nome_completo" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" style="height:45px; width:50%;border-radius: 10px;border:2px solid rgba(0, 0, 0, 0.274);" required>
               
               <label for="exampleInputEmail1" class="form-label" style="font-size:25px;margin-top:5px;">E-mail</label>
               <input type="email" name="username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" style="height:45px; width:50%;border-radius: 10px;border:2px solid rgba(0, 0, 0, 0.274);">
