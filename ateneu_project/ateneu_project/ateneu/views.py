@@ -22,7 +22,7 @@ def cadastro(request):
             return redirect('login')  
 
     return render(request, '../public/cadastro.html')  
-def login_view(request):  # Renomeei a função para evitar conflito com a função `login` do Django
+def login_view(request):  
     if request.method == 'POST':  # Verifica se é uma requisição POST
         username = request.POST['username']  # Obtém o nome de usuário do formulário
         password = request.POST['password']  # Obtém a senha do formulário
@@ -34,3 +34,8 @@ def login_view(request):  # Renomeei a função para evitar conflito com a funç
             messages.error(request, 'Usuário ou senha inválidos')  # Exibe mensagem de erro
 
     return render(request, '../public/login.html')  # Renderiza o template de login
+def alunos(request):
+    return render(request,'../public/alunos.html')
+
+def turmas(request):
+    return render(request,'../public/turmas.html')

@@ -7,7 +7,7 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>ateneu</title>
-    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
   </head>
   <body>    
       <header>
@@ -19,18 +19,18 @@
           <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav mr-auto">
               <li class="nav-item active">
-                <a class="nav-link" href="index.html" style="font-size:25px;">Página Inicial </a>
+                <a class="nav-link" href="{% url 'home' %}" style="font-size:25px;">Página Inicial </a>
               </li>
               <li>
-                <a class="nav-link" href="alunos.html" style="font-size:25px;">Alunos</a>
+                <a class="nav-link" href="{% url 'alunos' %}" style="font-size:25px;">Alunos</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="turmas.html" style="font-size:25px;font-weight:bold;">Turmas</a>
+                <a class="nav-link" href="{% url 'turmas' %}" style="font-size:25px;font-weight:bold;">Turmas</a>
               </li>
             </ul>
           </div>
         </nav>
-        <h1>Lista de Turmas</h1>
+        <h1 style="margin-top:15px;">Lista de Turmas</h1>
       <section>
         <ul>
           <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic molestias consequuntur enim veritatis porro quasi id velit doloribus, labore ea sit quos excepturi nisi sunt nobis amet temporibus reiciendis recusandae.</li>
